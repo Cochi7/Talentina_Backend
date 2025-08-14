@@ -12,20 +12,24 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/products")
+@RequestMapping("/candidatos")
 public class CandidatoController {
     @Autowired
-    private CandidatoService productService;
+    private CandidatoService candidatoService;
 
+    // endpoint para obtener TODOS los candidatos
     @GetMapping(produces = "application/json")
-    public ResponseEntity<List<Candidato>> findAll(){
-        List<Candidato> allProducts = CandidatoService.findAll();
-        return new ResponseEntity<>(allProducts, HttpStatus.OK);
+    public ResponseEntity<List<Candidato>> findAll()
+    {
+        List<Candidato> allCandidatos = candidatoService.findAll();
+        return new ResponseEntity<>(allCandidatos, HttpStatus.OK);
     }
 
+    // endpoint para obtener un candidato por ID
     @GetMapping(path="/{id}", produces = "application/json")
-    public ResponseEntity<Candidato> findById(@PathVariable("id") Long id){
-        Optional<Candidato> candidato = CandidatoService.findById(id);
+    public ResponseEntity<Candidato> findById(@PathVariable("id") Long id)
+    {
+        Optional<Candidato> candidato = candidatoService.findById(id);
         return candidato.map(value -> new ResponseEntity<>(value, HttpStatus.OK)).orElseGet(() -> ResponseEntity.notFound().build());
     }
 }
