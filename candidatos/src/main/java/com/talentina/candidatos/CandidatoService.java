@@ -10,13 +10,13 @@ import java.util.Optional;
 @Service
 public class CandidatoService {
     @Autowired
-    private CandidatoRepository productRepository;
+    private CandidatoRepository CandidatoRepository;
 
     public List<Candidato> findAll(){
-        return productRepository.findAll();
+        return CandidatoRepository.findAll();
     }
 
     public Optional<Candidato> findById(Long id){
-        return productRepository.findById(id);
+        return CandidatoRepository.findById(id);
     }
 }
