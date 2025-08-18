@@ -19,12 +19,12 @@ public class CandidatoRepository {
     private List<Candidato> candidatos(){
         Candidato c1 = new Candidato();
         c1.setId(1L);
-        c1.setName("Juan Manuel");
+        c1.setNombre("Juan Manuel");
         Candidato c2 = new Candidato();
         c2.setId(2L);
-        c2.setName("Sebastian");
+        c2.setNombre("Sebastian");
 
-        return List.of(c1,c2);
+        return new ArrayList<>(List.of(c1, c2));
     }
 
     public Candidato agregarCandidato(Candidato candidato) {
