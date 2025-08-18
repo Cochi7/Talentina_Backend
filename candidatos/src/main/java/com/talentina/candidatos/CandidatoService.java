@@ -12,6 +12,11 @@ public class CandidatoService {
     @Autowired
     private CandidatoRepository candidatoRepository;
 
+    public Candidato agregarCandidato(Candidato candidato)
+    {
+        return candidatoRepository.agregarCandidato(candidato);
+    }
+
     public List<Candidato> findAll()
     {
         return candidatoRepository.findAll();

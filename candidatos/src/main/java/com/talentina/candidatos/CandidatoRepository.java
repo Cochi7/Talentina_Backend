@@ -26,8 +26,14 @@ public class CandidatoRepository {
 
         return List.of(c1,c2);
     }
+
+    public Candidato agregarCandidato(Candidato candidato) {
+        candidatos.add(candidato);
+        return candidato;
+    }
+
     public List<Candidato> findAll(){
-        return this.candidatos;
+        return candidatos;
     }
 
     // Candidato tipo de dato, candidato una instancia de la clase y candidatos es la lista
