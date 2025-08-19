@@ -1,5 +1,6 @@
 package com.talentina.candidatos;
 
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -8,26 +9,12 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-@Service
+@Repository
 public class CandidatoRepository {
-    private final List<Candidato> candidatos;
+    private final List<Candidato> candidatos = new ArrayList<>();
 
-    public CandidatoRepository(){
-        this.candidatos = candidatos();
-    }
-
-    private List<Candidato> candidatos(){
-        Candidato c1 = new Candidato();
-        c1.setId(1L);
-        c1.setNombre("Juan Manuel");
-        Candidato c2 = new Candidato();
-        c2.setId(2L);
-        c2.setNombre("Sebastian");
-
-        return new ArrayList<>(List.of(c1, c2));
-    }
-
-    public Candidato agregarCandidato(Candidato candidato) {
+    public Candidato cargarCandidato(Candidato candidato)
+    {
         candidatos.add(candidato);
         return candidato;
     }
@@ -46,7 +33,6 @@ public class CandidatoRepository {
                 break; // Cortamos el loop, ya no hace falta seguir
             }
         }
-
         return ret; // Devolvemos el Optional (vacío o con algun valor)
     }
 }

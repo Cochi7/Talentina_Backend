@@ -12,9 +12,9 @@ public class CandidatoService {
     @Autowired
     private CandidatoRepository candidatoRepository;
 
-    public Candidato agregarCandidato(Candidato candidato)
+    public Candidato cargarCandidato(Candidato candidato)
     {
-        return candidatoRepository.agregarCandidato(candidato);
+        return candidatoRepository.cargarCandidato(candidato);
     }
 
     public List<Candidato> findAll()

@@ -9,27 +9,27 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/candidatos")
 public class CandidatoController {
     @Autowired
     private CandidatoService candidatoService;
 
     // endpoint para crear un candidato
-    @PostMapping(produces = "application/json")
-    public Candidato create(@RequestBody Candidato candidato) {
-        return candidatoService.agregarCandidato(candidato);
+    @PostMapping("/candidato")
+    public String recibirCandidato(@RequestBody Candidato candidato) {
+        candidatoService.cargarCandidato(candidato);
+        return "Candidato agregado: " + candidato.getNombre();
     }
 
     // endpoint para obtener TODOS los candidatos
-    @GetMapping(produces = "application/json")
-    public List<Candidato> findAll() {
+    @GetMapping("/candidatos")
+    public List<Candidato> findAll(){
         return candidatoService.findAll();
     }
 
-
     // endpoint para obtener un candidato por ID
-    @GetMapping(path = "/{id}", produces = "application/json")
-    public Candidato findById(@PathVariable Long id) {
+    @GetMapping(path = "/candidatos/{id}")
+    public Candidato findById(@PathVariable Long id)
+    {
         return candidatoService.findById(id).orElse(null);
     }
 }
