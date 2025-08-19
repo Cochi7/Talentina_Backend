@@ -27,7 +27,7 @@ public class CandidatoController {
     }
 
     // endpoint para obtener un candidato por ID
-    @GetMapping(path = "/candidatos/{id}")
+    @GetMapping(path = "/candidato/{id}")
     public Candidato findById(@PathVariable Long id)
     {
         return candidatoService.findById(id).orElse(null);
