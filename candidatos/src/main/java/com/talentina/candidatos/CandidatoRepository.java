@@ -1,22 +1,19 @@
 package com.talentina.candidatos;
 
 import org.springframework.stereotype.Repository;
-import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Repository
 public class CandidatoRepository {
     private final List<Candidato> candidatos = new ArrayList<>();
 
-    public Candidato cargarCandidato(Candidato candidato)
+    public void cargarCandidato(Candidato candidato)
     {
         candidatos.add(candidato);
-        return candidato;
     }
 
     public List<Candidato> findAll(){
