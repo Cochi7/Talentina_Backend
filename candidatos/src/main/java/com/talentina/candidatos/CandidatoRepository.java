@@ -32,4 +32,15 @@ public class CandidatoRepository {
         }
         return ret; // Devolvemos el Optional (vacío o con algun valor)
     }
+
+    public List<Candidato> filtrarPorExperiencia(Long experiencia) {
+        List<Candidato> resultado = new ArrayList<>();; // Arrancamos vacío
+
+        for (Candidato candidato : this.candidatos) { // Recorremos la lista
+            if (candidato.getExperiencia() >= experiencia) { // Filtramos segun la cantidad que se pasa por parametro
+                resultado.add(candidato); // Si cumple la condicion lo guardamos en el array
+            }
+        }
+        return resultado; // Devolvemos el array con los candidatos que cumplieron la condicion
+    }
 }

@@ -29,4 +29,10 @@ public class CandidatoController {
     {
         return candidatoService.findById(id).orElse(null);
     }
+
+    @GetMapping(path = "/candidatos/experiencia/{experiencia}")
+    public List<Candidato> filtrarPorExperiencia(@PathVariable Long experiencia)
+    {
+        return candidatoService.filtrarPorExperiencia(experiencia);
+    }
 }

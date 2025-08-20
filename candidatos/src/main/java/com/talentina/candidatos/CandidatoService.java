@@ -26,4 +26,9 @@ public class CandidatoService {
     {
         return candidatoRepository.findById(id);
     }
+
+    public List<Candidato> filtrarPorExperiencia(Long experiencia)
+    {
+        return candidatoRepository.filtrarPorExperiencia(experiencia);
+    }
 }
