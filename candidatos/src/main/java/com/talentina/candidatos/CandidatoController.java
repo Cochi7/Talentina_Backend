@@ -35,4 +35,13 @@ public class CandidatoController {
     {
         return candidatoService.filtrarPorExperiencia(experiencia);
     }
+
+    @GetMapping("/candidatos/filtrar")
+    public List<Candidato> filtrar(
+            @RequestParam(required = false) String nombre,
+            @RequestParam(required = false) Long experienciaMin,
+            @RequestParam(required = false) String skill) {
+
+        return candidatoService.filtrar(nombre, experienciaMin, skill);
+    }
 }

@@ -31,4 +31,9 @@ public class CandidatoService {
     {
         return candidatoRepository.filtrarPorExperiencia(experiencia);
     }
+
+    public List<Candidato> filtrar(String nombre, Long experienciaMin, String skill)
+    {
+        return candidatoRepository.filtrar(nombre, experienciaMin, skill);
+    }
 }
