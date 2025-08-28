@@ -1,5 +1,9 @@
 package com.talentina.candidatos;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "candidatos")  // nombre de la tabla en Postgres
 public class Candidato {
     private Long id;
     private String nombre;
