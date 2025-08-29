@@ -5,6 +5,8 @@ import jakarta.persistence.*;
 @Entity
 @Table(name = "candidatos")  // nombre de la tabla en Postgres
 public class Candidato {
+
+    @Id
     private Long id;
     private String nombre;
     private String email;

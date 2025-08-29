@@ -12,36 +12,29 @@ public class CandidatoController {
 
     // endpoint para crear un candidato
     @PostMapping("/candidato")
-    public String recibirCandidato(@RequestBody Candidato candidato) {
-        candidatoService.cargarCandidato(candidato);
-        return "Candidato agregado: " + candidato.getNombre();
+    public Candidato crearCandidato(@RequestBody Candidato candidato) {
+        return candidatoService.guardar(candidato);
     }
 
     // endpoint para obtener TODOS los candidatos
     @GetMapping("/candidatos")
-    public List<Candidato> findAll(){
-        return candidatoService.findAll();
+    public List<Candidato> getAllCandidatos(){
+        return candidatoService.obtenerTodos();
     }
 
     // endpoint para obtener un candidato por ID
     @GetMapping(path = "/candidato/{id}")
     public Candidato findById(@PathVariable Long id)
     {
-        return candidatoService.findById(id).orElse(null);
+        return candidatoService.filtrarPorId(id).orElse(null);
     }
 
-    @GetMapping(path = "/candidatos/experiencia/{experiencia}")
-    public List<Candidato> filtrarPorExperiencia(@PathVariable Long experiencia)
-    {
-        return candidatoService.filtrarPorExperiencia(experiencia);
-    }
-
-    @GetMapping("/candidatos/filtrar")
+    /*@GetMapping("/candidatos/filtrar")
     public List<Candidato> filtrar(
             @RequestParam(required = false) String nombre,
             @RequestParam(required = false) Long experienciaMin,
             @RequestParam(required = false) String skill) {
 
         return candidatoService.filtrar(nombre, experienciaMin, skill);
-    }
+    }*/
 }

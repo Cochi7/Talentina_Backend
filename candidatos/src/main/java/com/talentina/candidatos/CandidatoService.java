@@ -12,28 +12,23 @@ public class CandidatoService {
     @Autowired
     private CandidatoRepository candidatoRepository;
 
-    public void cargarCandidato(Candidato candidato)
+    public Candidato guardar(Candidato candidato)
     {
-        candidatoRepository.cargarCandidato(candidato);
+        return candidatoRepository.save(candidato);
     }
 
-    public List<Candidato> findAll()
+    public List<Candidato> obtenerTodos()
     {
         return candidatoRepository.findAll();
     }
 
-    public Optional<Candidato> findById(Long id)
+    public Optional<Candidato> filtrarPorId(Long id)
     {
         return candidatoRepository.findById(id);
     }
 
-    public List<Candidato> filtrarPorExperiencia(Long experiencia)
-    {
-        return candidatoRepository.filtrarPorExperiencia(experiencia);
-    }
-
-    public List<Candidato> filtrar(String nombre, Long experienciaMin, String skill)
+    /*public List<Candidato> filtrar(String nombre, Long experienciaMin, String skill)
     {
         return candidatoRepository.filtrar(nombre, experienciaMin, skill);
-    }
+    }*/
 }
